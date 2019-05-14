@@ -14,8 +14,21 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        debug{
+        }
+        release {
+            keyAlias project["PkeyAlias"]
+            keyPassword project["Pkeypass"]
+            storeFile file(project["PstoreFile"])
+            storePassword project["PstorePass"]
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
