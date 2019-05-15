@@ -19,16 +19,16 @@ android {
         debug{
         }
         release {
-            keyAlias "testing"
-            keyPassword "12345678"
-            storeFile file("../testing.jks")
-            storePassword "12345678"
+            keyAlias project["keyAlias"]
+            keyPassword project["keyPass"]
+            storeFile project["storeFilePath"]
+            storePassword project["storePass"]
         }
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs .release
+            signingConfig signingConfigs.release
             minifyEnabled true
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
