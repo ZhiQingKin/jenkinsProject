@@ -21,7 +21,7 @@ android {
         release {
             keyAlias project["keyAlias"]
             keyPassword project["keyPass"]
-            storeFile project["storeFilePath"]
+            storeFile file(project["storeFilePath"])
             storePassword project["storePass"]
         }
     }
